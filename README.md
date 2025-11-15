@@ -113,6 +113,10 @@ src/
     ├── home/           # Home page images
     ├── states/         # State images
     └── ...             # Other image folders
+
+
+
+    
 🔧 Configuration
 Environment Variables
 VITE_GEMINI_API_KEY: Google Gemini API key for AI features
