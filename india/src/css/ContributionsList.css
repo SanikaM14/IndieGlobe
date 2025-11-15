@@ -1,0 +1,271 @@
+/* src/css/ContributionsList.css */
+/* Theme-aware CSS variables - inherits from main.css */
+
+:root {
+  --bg: var(--linen-white, #F9F4F5);
+  --card-bg: rgba(255, 255, 255, 0.15);
+  --text-primary: var(--charcoal, #2D3047);
+  --text-secondary: var(--deep-garnet, #8A1538);
+  --accent: var(--crimson-bloom, #D62246);
+  --accent-hover: var(--blush-pink, #FF6B8B);
+  --border: rgba(138, 21, 56, 0.2);
+  --shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+}
+
+/* Dark theme overrides - automatically applied when [data-theme="dark"] is set */
+[data-theme="dark"] {
+  --bg: var(--linen-white, #0b0f19);
+  --card-bg: rgba(255, 255, 255, 0.08);
+  --text-primary: var(--charcoal, #E6E8F1);
+  --text-secondary: var(--deep-garnet, #8A1538);
+  --accent: var(--crimson-bloom, #D62246);
+  --accent-hover: var(--blush-pink, #FF6B8B);
+  --border: rgba(138, 21, 56, 0.3);
+  --shadow: 0 10px 32px rgba(0, 0, 0, 0.45);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: 'Inter', ui-sans-serif, system-ui;
+  min-height: 100vh;
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 36px auto;
+  padding: 24px;
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.card {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  padding: 18px;
+  border-radius: 14px;
+  margin-bottom: 18px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(138, 21, 56, 0.3);
+}
+
+.card h3 {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.card div {
+  margin-top: 6px;
+  font-size: 14px;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.card a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.card a:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+/* Ensure smooth transitions when theme changes */
+* {
+  transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease;
+}
+
+/* Extra Large Screens (1200px and above) */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1320px;
+    margin: 40px auto;
+    padding: 28px;
+  }
+  
+  .card {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .card h3 {
+    font-size: 1.3rem;
+  }
+  
+  .card div {
+    font-size: 15px;
+  }
+}
+
+/* Large Tablets and Small Laptops (900px - 1199.98px) */
+@media (min-width: 900px) and (max-width: 1199.98px) {
+  .container {
+    max-width: 960px;
+    margin: 32px auto;
+    padding: 22px;
+  }
+  
+  .card {
+    padding: 18px;
+    margin-bottom: 18px;
+  }
+  
+  .card h3 {
+    font-size: 1.25rem;
+  }
+  
+  .card div {
+    font-size: 14px;
+  }
+}
+
+/* Tablets (600px - 899.98px) */
+@media (min-width: 600px) and (max-width: 899.98px) {
+  .container {
+    max-width: 720px;
+    margin: 28px auto;
+    padding: 20px;
+  }
+  
+  .card {
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+  
+  .card h3 {
+    font-size: 1.2rem;
+  }
+  
+  .card div {
+    font-size: 14px;
+  }
+}
+
+/* Large Phones (430px - 599.98px) */
+@media (min-width: 430px) and (max-width: 599.98px) {
+  .container {
+    margin: 24px auto;
+    padding: 18px;
+  }
+  
+  .card {
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .card h3 {
+    font-size: 1.15rem;
+  }
+  
+  .card div {
+    font-size: 13px;
+  }
+}
+
+/* Small Phones (up to 429.98px) */
+@media (max-width: 429.98px) {
+  .container {
+    margin: 20px auto;
+    padding: 16px;
+  }
+  
+  .card {
+    padding: 14px;
+    margin-bottom: 14px;
+    border-radius: 12px;
+  }
+  
+  .card h3 {
+    font-size: 1.1rem;
+  }
+  
+  .card div {
+    font-size: 13px;
+  }
+}
+
+/* Landscape orientations for mobile devices */
+@media (max-height: 500px) and (orientation: landscape) {
+  .container {
+    margin: 16px auto;
+    padding: 14px;
+  }
+  
+  .card {
+    padding: 12px;
+    margin-bottom: 12px;
+  }
+  
+  .card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+  }
+  
+  .card div {
+    font-size: 12px;
+    margin-top: 4px;
+  }
+}
+
+/* Ultra-wide screens (1400px and above) */
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1380px;
+    margin: 44px auto;
+    padding: 32px;
+  }
+  
+  .card {
+    padding: 22px;
+    margin-bottom: 22px;
+  }
+  
+  .card h3 {
+    font-size: 1.35rem;
+  }
+  
+  .card div {
+    font-size: 16px;
+  }
+}
+
+/* Medium screens optimization (800px - 1024px) */
+@media (min-width: 800px) and (max-width: 1024px) {
+  .container {
+    max-width: 840px;
+    margin: 30px auto;
+    padding: 21px;
+  }
+  
+  .card {
+    padding: 17px;
+    margin-bottom: 17px;
+  }
+  
+  .card h3 {
+    font-size: 1.22rem;
+  }
+  
+  .card div {
+    font-size: 14px;
+  }
+}
